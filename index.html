@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Darlehensrechner</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+    </style>
+</head>
+<body>
+    <h1>Darlehensrechner</h1>
+    <div id="wrapper">
+        <select name="Darlehensart" type="select" id="darlehensart">
+            <option value="annuitaetendarlehen">Annuitätendarlehen</option>
+            <option value="tilgungsdarlehen">Tilgungsdarlehen</option>
+            <option value="faelligkeitsdarlehen">Fälligkeitsdarlehen</option>
+        </select>
+        <input type="text" placeholder="Laufzeit in Monaten" id="laufzeit">
+        <input type="number" placeholder="Zinssatz in %" id="zinssatz">
+        <input type="number" placeholder="Darlehenssumme in €" id="summe">
+        <input type="button" value="Monatsrate berechnen" id="berechnen">
+    </div>
+    <h2>Ihre Monatsrate beträgt: </h2>
+    <div id="monatsrate"></div>
+    <script src="index.js"></script>
+</body>
+</html>

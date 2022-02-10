@@ -1,0 +1,12 @@
+body {
+    margin: 1rem;
+    font-family: poppins;
+}
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+}
+input, select {
+    margin-bottom: 1rem;
+}

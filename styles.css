@@ -10,3 +10,30 @@ body {
 input, select {
     margin-bottom: 1rem;
 }
+
+#monatsrate {
+    display: flex;
+    flex-direction: column;
+}
+#beispielrechnung{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+#formel {
+    width: 50vw;
+}
+.rechnung {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.bruchwrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#zeile1, #zeile3 {
+    border-bottom: 1px solid black;
+}

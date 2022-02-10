@@ -1,13 +1,23 @@
-let eingabe = document.querySelector("#berechnen")
-let ratendiv = document.querySelector("#monatsrate")
+const eingabe = document.querySelector("#berechnen")
+const ratendiv = document.querySelector("#monatsrate")
+const img = document.querySelector("#img")
+const ganzeRechnung = document.getElementById("rechnung")
+const baseline = document.getElementById("baseline")
+const baseline2 = document.getElementById("baseline2")
+const bruchwrapper = document.getElementById("bruchwrapper")
+const zeile3= document.getElementById("zeile3")
+const zeile4= document.getElementById("zeile4")
+const zeile1 = document.getElementById("zeile1")
+const zeile2 = document.getElementById("zeile2")
+const beispielrechnung = document.querySelector("#beispielrechnung")
 
 function index(){
+    beispielrechnung.style.display = "none"
     eingabe.addEventListener("click", artauswahl)
 }
 
 function artauswahl(){
     ratendiv.innerHTML = ""
-
    let auswahl = document.querySelector("#darlehensart").value
 
     if (auswahl === "annuitaetendarlehen"){
@@ -16,18 +26,28 @@ function artauswahl(){
     else if (auswahl === "tilgungsdarlehen") {
         tilgungsDarlehen()
     }
+
     else if (auswahl === "faelligkeitsdarlehen") {
         faelligskeitsDarlehen()
     }
 }
 
 function annuitaetenDarlehen(){
+    beispielrechnung.style.display = "flex"
     let laufzeit = parseInt(document.getElementById("laufzeit").value)
     let zinssatz = parseInt(document.querySelector("#zinssatz").value)
     let summe = parseInt(document.querySelector("#summe").value)
     let zinsen = zinssatz / 100
     let monatsrate = (summe * (((1 + (zinsen / 12)) ** (laufzeit) * zinsen) / ((1 + (zinsen / 12)) ** (laufzeit) - 1))) / 12
     ratendiv.innerText = monatsrate.toFixed(2) + "€"
+
+    baseline2.innerText = "Annuität = Kreditsumme * "
+    zeile1.innerHTML = "(1 + Zinssatz)  <sup> Laufzeit </sup> * Zinssatz"
+    zeile2.innerHTML =  "(1 + Zinssatz)  <sup> Laufzeit </sup> -  1"
+
+    baseline.innerText = monatsrate.toFixed(2) + " = " + summe + " *   "
+    zeile3.innerHTML = "(1 + " + zinsen + ")  <sup>" + laufzeit + "</sup> * " + zinsen
+    zeile4.innerHTML = "(1 + " + zinsen + ")  <sup>" + laufzeit + "</sup> - 1 "
 }
 
 function tilgungsDarlehen() {

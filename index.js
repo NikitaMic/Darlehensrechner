@@ -42,12 +42,12 @@ function annuitaetenDarlehen(){
     ratendiv.innerText = monatsrate.toFixed(2) + "€"
 
     baseline2.innerText = "Annuität = Kreditsumme * "
-    zeile1.innerHTML = "(1 + Zinssatz)  <sup> Laufzeit </sup> * Zinssatz"
-    zeile2.innerHTML =  "(1 + Zinssatz)  <sup> Laufzeit </sup> -  1"
+    zeile1.innerHTML = "(1 + (Zinssatz / 12))  <sup> Laufzeit </sup> * Zinssatz"
+    zeile2.innerHTML =  "(1 + (Zinssatz / 12))  <sup> Laufzeit </sup> -  1"
 
     baseline.innerText = monatsrate.toFixed(2) + " = " + summe + " *   "
-    zeile3.innerHTML = "(1 + " + zinsen + ")  <sup>" + laufzeit + "</sup> * " + zinsen
-    zeile4.innerHTML = "(1 + " + zinsen + ")  <sup>" + laufzeit + "</sup> - 1 "
+    zeile3.innerHTML = "(1 + " + zinsen + " / 12" + ")  <sup>" + laufzeit + "</sup> * " + zinsen
+    zeile4.innerHTML = "(1 + " + zinsen + " / 12" + ")  <sup>" + laufzeit + "</sup> - 1 "
 }
 
 function tilgungsDarlehen() {
@@ -58,8 +58,8 @@ function tilgungsDarlehen() {
     let festeRate = summe / laufzeit
     let rate = 0
     let tilgungOhneZinsen = document.createElement("h3")
-    tilgungOhneZinsen.innerText = "Feste Tilgungsrate ohne Zinsen: " + festeRate.toFixed(2) + " €"
-    ratendiv.appendChild(tilgungohnezinsen)
+    tilgungOhneZinsen.innerText = "Feste monatl. Tilgungsrate ohne Zinsen: " + festeRate.toFixed(2) + " €"
+    ratendiv.appendChild(tilgungOhneZinsen)
     let x = 1
 
     while (summe > 0) {
@@ -70,6 +70,7 @@ function tilgungsDarlehen() {
         ratendiv.appendChild(zahlung)
         x++
     }
+    baseline2.innerText = "Monatl. feste Rate ohne Zinsen = <sup>Kreditsumme</sup>"
 }
 
 function faelligskeitsDarlehen(){

@@ -46,8 +46,8 @@ function annuitaetenDarlehen(){
     zeile2.innerHTML =  "(1 + (Zinssatz / 12))  <sup> Laufzeit </sup> -  1"
 
     baseline.innerText = monatsrate.toFixed(2) + " = " + summe + " *   "
-    zeile3.innerHTML = "(1 + " + zinsen + " / 12" + ")  <sup>" + laufzeit + "</sup> * " + zinsen
-    zeile4.innerHTML = "(1 + " + zinsen + " / 12" + ")  <sup>" + laufzeit + "</sup> - 1 "
+    zeile3.innerHTML = "(1 + " + zinsen + " / 12)  <sup>" + laufzeit + "</sup> * " + zinsen
+    zeile4.innerHTML = "(1 + " + zinsen + " / 12)  <sup>" + laufzeit + "</sup> - 1 "
 }
 
 function tilgungsDarlehen() {
@@ -87,6 +87,13 @@ function faelligskeitsDarlehen(){
     zahlungGes.innerHTML = "Gesammte Zinsbelastung: " + rategesammt.toFixed(2) + " €"
     ratendiv.appendChild(zahlung)
     ratendiv.appendChild(zahlungGes)
+
+    baseline2.innerText = "Gesamtsumme = Darlehenssumme + (Darlehenssumme * Zinssatz * 12)"
+    baseline.innerText = "Gesamtsumme = " + summe + " + (" + summe + " * " + zinsen + " * 12)"
+    zeile1.innerHTML = ""
+    zeile2.innerHTML = ""
+    zeile3.innerHTML = ""
+    zeile4.innerHTML = ""
 }
 
 
